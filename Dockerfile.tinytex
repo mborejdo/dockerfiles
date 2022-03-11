@@ -1,0 +1,19 @@
+FROM mborejdo/docker-base
+
+RUN mkdir /tinytex && \
+    wget "https://yihui.org/gh/tinytex/tools/install-unx.sh" &&\
+    chmod +x install-unx.sh &&\
+    ./install-unx.sh &&\
+    \
+    /root/bin/tlmgr install \
+        geometry \
+        raleway \
+        droid \
+        fontawesome \
+        titlesec \
+        xcolor \
+        ly1 \
+        enumitem \
+        xstring \
+        catchfile \
+        pgf
