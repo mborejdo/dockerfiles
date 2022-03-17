@@ -26,7 +26,7 @@ case "$mode" in
     cp images/$outfile /github/home;
     ;;
 "tweet")
-    wss -e ".twitter-tweet-rendered" file:///github/workspace/data/twitter.html?id=$infile $outfile.png
+    wss -e ".twitter-tweet-rendered" file:///github/workspace/data/$infile $outfile.png
     sic -i $outfile.png --crop 0 0 570 245 -o $outfile.png
     cp $outfile.png /github/home;
     ;;

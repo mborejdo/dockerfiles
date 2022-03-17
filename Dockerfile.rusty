@@ -3,5 +3,14 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 RUN /root/.cargo/bin/cargo install wcloud --git https://github.com/isaackd/wcloud-dev &&\
     /root/.cargo/bin/cargo install sic &&\
-	/root/.cargo/bin/cargo install --bin wss --git https://github.com/mborejdo/wss --branch main
+    /root/.cargo/bin/cargo install --bin wss --git https://github.com/mborejdo/wss --branch main
 
+ENV RUSTY_V8_MIRROR=/.cache/rusty_v8
+RUN mkdir -p /.cache/rusty_v8/v0.40.2/ &&\
+    wget -O /.cache/rusty_v8/v0.40.2/librusty_v8_release_x86_64-unknown-linux-gnu.a https://github.com/denoland/rusty_v8/releases/download/v0.40.2/librusty_v8_release_x86_64-unknown-linux-gnu.a &&\
+    /root/.cargo/bin/cargo install deno --locked
+
+RUN rm -rf /root/.rustup
+
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh

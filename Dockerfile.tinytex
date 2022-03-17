@@ -3,7 +3,8 @@ FROM mborejdo/docker-base
 RUN mkdir /tinytex && \
     wget "https://yihui.org/gh/tinytex/tools/install-unx.sh" &&\
     chmod +x install-unx.sh &&\
-    ./install-unx.sh &&\
+    ./install-unx.sh \
+    &&\
     \
     /root/bin/tlmgr install \
         geometry \
@@ -17,3 +18,6 @@ RUN mkdir /tinytex && \
         xstring \
         catchfile \
         pgf
+
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh

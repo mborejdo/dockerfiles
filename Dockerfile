@@ -1,4 +1,4 @@
-FROM ubuntu:focal AS base
+FROM ubuntu:focal
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     wget \
@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     make \
     build-essential \
-    nasm &&\
+    nasm \
+    git \
+    &&\
     \
     apt-get autoremove -y &&\
     apt-get clean -y &&\
