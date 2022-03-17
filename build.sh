@@ -4,6 +4,9 @@ docker push mborejdo/docker-base;
 docker build -t mborejdo/docker-rusty -f Dockerfile.rusty .;
 docker push mborejdo/docker-rusty;
 
+docker build -t mborejdo/docker-rusty-bins -f Dockerfile.rusty-bins .;
+docker push mborejdo/docker-rusty-bins;
+
 docker build -t mborejdo/docker-tinytex -f Dockerfile.tinytex .;
 docker push mborejdo/docker-tinytex;
 
