@@ -1,6 +1,5 @@
 FROM mborejdo/docker-base
-ENV PATH="/root/.cargo/bin:/root/bin:${PATH}"
-COPY --from=mborejdo/docker-rusty /root/.cargo/bin/* /root/.cargo/bin/
+COPY --from=mborejdo/docker-rusty /root/.cargo/bin/* /usr/local/bin/
 
 ADD /entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
