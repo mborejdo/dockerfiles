@@ -31,6 +31,6 @@ case "$mode" in
     cp $outfile.png /github/home;
     ;;
 *)
-    exec bash -c "$@"
+    exec bash -c "$*"
     ;;
 esac
