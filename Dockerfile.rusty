@@ -13,6 +13,8 @@ RUN mkdir -p "/.cache/rusty_v8/$VERSION" &&\
 
 RUN /root/.cargo/bin/cargo install deno
 
+RUN /root/.cargo/bin/cargo install --git https://github.com/mborejdo/faviconr
+
 RUN rm -rf /root/.rustup
 
 ADD /entrypoint.sh /entrypoint.sh
