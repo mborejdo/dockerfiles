@@ -1,11 +1,6 @@
 FROM mborejdo/docker-base
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-RUN /root/.cargo/bin/cargo install wcloud --git https://github.com/isaackd/wcloud-dev &&\
-    /root/.cargo/bin/cargo install sic &&\
-    /root/.cargo/bin/cargo install --bin wss --git https://github.com/mborejdo/wss --branch main &&\
-    /root/.cargo/bin/cargo install zola --git https://github.com/getzola/zola
-
 ENV RUSTY_V8_MIRROR=/.cache/rusty_v8
 ENV VERSION=v0.41.0
 RUN mkdir -p "/.cache/rusty_v8/$VERSION" &&\
@@ -13,7 +8,11 @@ RUN mkdir -p "/.cache/rusty_v8/$VERSION" &&\
 
 RUN /root/.cargo/bin/cargo install deno
 
-RUN /root/.cargo/bin/cargo install --git https://github.com/mborejdo/faviconr
+RUN /root/.cargo/bin/cargo install wcloud --git https://github.com/isaackd/wcloud-dev &&\
+    /root/.cargo/bin/cargo install sic &&\
+    /root/.cargo/bin/cargo install --bin wss --git https://github.com/mborejdo/wss --branch main &&\
+    /root/.cargo/bin/cargo install --git https://github.com/mborejdo/faviconr &&\
+    /root/.cargo/bin/cargo install zola --git https://github.com/getzola/zola
 
 RUN rm -rf /root/.rustup
 
