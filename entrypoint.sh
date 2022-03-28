@@ -16,6 +16,10 @@ case "$mode" in
     gs -sDEVICE=pngalpha -o $infile.png -r144 $infile.pdf;
     cp $infile.png /github/home;
     ;;
+"fav")
+    faviconr ;
+    cp *.png /github/home;
+    ;;
 "wcloud")
     wcloud  $cli  --text $infile -o images/$outfile;
     sic -i images/$outfile --hue-rotate 50 --invert --grayscale -o images/$outfile;
